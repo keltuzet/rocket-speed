@@ -1,0 +1,86 @@
+:root {
+  --app-background-color: #1f1f1f;
+  --app-text-color: hsla(0, 0%, 100%, 0.87);
+
+  --app-topbar-background-color: #282828;
+  --app-topbar-border-color: transparent;
+  --app-topbar-text-color: hsla(0, 0%, 100%, 0.87);
+
+  --app-search-bar-background-color: #363636;
+  --app-search-bar-search-icon-color: hsla(0, 0%, 100%, 0.87);
+  --app-search-bar-focus-background-color: #363636;
+  --app-search-bar-focus-text-color: hsla(0, 0%, 100%, 0.87);
+  --app-search-bar-focus-placeholder-text-color: hsla(0, 0%, 100%, 0.87);
+
+  --app-nav-background-color: #282828;
+
+  --nav-list-item-background-color: #363636;
+  --nav-list-item-hover-background-color: #363636;
+  --nav-list-item-counter-color: #777;
+  --nav-list-item-overdue-counter-color: #ff7f74;
+  --nav-list-item-menu-btn-color: hsla(0, 0%, 100%, 0.56);
+  --nav-list-item-menu-btn-hover-color: hsla(0, 0%, 100%, 0.87);
+
+  --expansion-panel-header-color: hsla(0, 0%, 100%, 0.87);
+  --expansion-panel-header-icon-color: #777777;
+
+  --todo-title-color: hsla(0, 0%, 100%, 0.87);
+
+  --icon-green-color: #25b84c;
+  --icon-tenne-color: #ff9a14;
+  --icon-royal-blue-color: #5297ff;
+  --icon-purple-heart-color: #a970ff;
+
+  --todo-border-bottom-color: hsla(0, 0%, 100%, 0.1);
+  --todo-toolbar-color: hsla(0, 0%, 100%, 0.56);
+  --todo-toolbar-hover-color: hsla(0, 0%, 100%, 0.87);
+  --todo-toolbar-hover-background-color: #4d4d4d;
+  --todo-toolbar-background-image: none;
+  --todo-term-overdue-color: #ff7066;
+
+  --reorder-handler-color: hsla(0, 0%, 100%, 0.56);
+  --reorder-handler-hover-color: hsla(0, 0%, 100%, 0.87);
+  --reorder-handler-hover-background-color: #4d4d4d;
+
+  --icon-button-color: hsla(0, 0%, 100%, 0.56);
+  --icon-button-hover-color: hsla(0, 0%, 100%, 0.87);
+  --icon-button-hover-background-color: #4d4d4d;
+
+  --basic-button-basic-color: #eee;
+  --basic-button-basic-background-color: #353535;
+
+  --dialog-color: #eee;
+  --dialog-primary-background-color: #282828;
+  --dialog-secondary-background-color: #202020;
+  --dialog-border-color: #333;
+  --dialog-box-shadow: 0 2px 8px 0 rgb(0 0 0 / 16%);
+
+  --form-filed-color: #eee;
+  --form-filed-border-color: #333;
+  --form-filed-background-color: #202020;
+
+  --dropdown-background-color: #282828;
+  --dropdown-border-color: #171717;
+  --dropdown-box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+  --dropdown-option-hover-background-color: #363636;
+  --dropdown-color: hsla(0, 0%, 100%, 0.87);
+  --dropdown-seperate-color: hsla(0,0%,100%,.1);
+
+  --switch-label-color: #eee;
+  --switch-bar-color: #555;
+
+  --create-task-modal-border-color: #383838;
+  --create-task-modal-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%), 0 15px 50px 0 rgb(0 0 0 / 60%);
+
+  --select-tags-menu-border-color: #171717;
+  --select-tags-menu-filter-border-color: hsla(0, 0%, 100%, 0.1);
+
+  --page-header-border-color: hsla(0, 0%, 100%, 0.1);
+
+  --schedule-suggestion-hover-background-color: #363636;
+  --schedule-suggestion-weekday-color: hsla(0,0%,100%,.6);
+}
+
+.header {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+}

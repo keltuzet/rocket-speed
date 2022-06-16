@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rocket-pilot": {
+      "hosting": {
+        "rocket-speed": [
+          "rocket-pilot"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rocket-pilot"
+  }
+}

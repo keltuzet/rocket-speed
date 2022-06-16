@@ -1,0 +1,22 @@
+<button
+  *ngIf="project"
+  [tMenuTrigger]="selectProjectMenu"
+  [menuData]="project"
+  (afterClose)="updateValue($event)"
+  tTooltip
+  [tlpTemplate]="tooltip"
+  type="button"
+>
+  <svg-icon [name]="project | projectIcon" [style.color]="project.color" svgClass="icon_size_s"></svg-icon>
+  <span class="inner">
+    <ng-container *ngIf="project.isIncoming; else projectLable">Входящие</ng-container>
+  </span>
+</button>
+
+<ng-template #projectLable>
+  {{ project.title }}<ng-container *ngIf="project.status"> / {{ project.status.title }}</ng-container>
+</ng-template>
+
+<ng-template #tooltip>
+  <div class="tooltip"><span>Выбрать проект</span><span class="key ml-2">#</span></div>
+</ng-template>

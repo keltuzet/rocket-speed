@@ -1,0 +1,35 @@
+<app-expansion-panel tag="tags">
+  <app-expansion-panel-header>Метки</app-expansion-panel-header>
+  <app-expansion-panel-body>
+    <ul class="nav-list" cdkDropList (cdkDropListDropped)="drop($event, unsharedTags)">
+      <li *ngFor="let tag of unsharedTags; trackBy: trackyBy" cdkDrag class="nav-list-item-container">
+        <a [routerLink]="['label', tag.title]">
+          <t-nav-list-item [todoCount]="tag.count" [color]="tag.color" [hasMenu]="true" [menu]="menu" icon="tag">
+            <span>{{ tag.title }}</span>
+            <button class="nav-list-item__replace-tool" cdkDragHandle>
+              <svg-icon name="drag" svgClass="icon_size_m"></svg-icon>
+            </button>
+          </t-nav-list-item>
+        </a>
+      </li>
+    </ul>
+
+    <app-expansion-panel tag="commonTags">
+      <app-expansion-panel-header><span class="unshared-title">Общие</span></app-expansion-panel-header>
+      <app-expansion-panel-body>
+        <ul class="nav-list" cdkDropList (cdkDropListDropped)="drop($event, sharedTags)">
+          <li *ngFor="let tag of sharedTags; trackBy: trackyBy" cdkDrag class="nav-list-item-container">
+            <a [routerLink]="['label', tag.title]">
+              <t-nav-list-item [todoCount]="tag.count" [color]="tag.color" [hasMenu]="true" [menu]="menu" icon="tag">
+                <span>{{ tag.title }}</span>
+                <button class="nav-list-item__replace-tool" cdkDragHandle>
+                  <svg-icon name="drag" svgClass="icon_size_m"></svg-icon>
+                </button>
+              </t-nav-list-item>
+            </a>
+          </li>
+        </ul>
+      </app-expansion-panel-body>
+    </app-expansion-panel>
+  </app-expansion-panel-body>
+</app-expansion-panel>

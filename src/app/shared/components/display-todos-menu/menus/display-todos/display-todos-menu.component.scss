@@ -1,0 +1,58 @@
+.menu-item {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  color: #202020;
+  line-height: 24px;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 12px;
+    line-height: 24px;
+    font-weight: bold;
+    font-size: 13px;
+
+    .reset-btn {
+      color: #de4c4a;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-label,
+  &-select {
+    display: flex;
+    align-items: stretch;
+  }
+
+  &-label {
+    margin-right: 8px;
+
+    &__icon {
+      margin-right: 10px;
+      color: #808080;
+    }
+  }
+
+  &-select {
+    justify-content: flex-end;
+    color: #808080;
+
+    &:hover {
+      color: #202020;
+    }
+
+    &__inner {
+      width: 120px;
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: right;
+    }
+  }
+}

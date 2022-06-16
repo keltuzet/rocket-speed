@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  width: 275px;
+  border-radius: 5px;
+  border: 1px solid var(--select-tags-menu-border-color);
+  box-shadow: var(--dropdown-box-shadow);
+  background-color: var(--dropdown-background-color);
+  overflow: hidden;
+}
+
+.filter-tag {
+  padding: 5px 12px;
+  width: 100%;
+  border-bottom: 1px solid var(--select-tags-menu-filter-border-color);
+  line-height: 24px;
+  box-sizing: border-box;
+}
+
+.tag-list {
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  list-style: none;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f3f3f3;
+    }
+
+    .label {
+      flex-grow: 1;
+      margin: 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    t-checkbox {
+      color: grey;
+    }
+  }
+
+  .shared-tags-title {
+    color: #555;
+    padding: 7px 10px;
+  }
+}
+
+.option-header {
+  color: #555;
+  padding: 10px 7px;
+}
+
+.create-tag-button {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  width: 100%;
+  padding: 4px 10px;
+  color: hsla(0, 0%, 100%, 0.87);
+
+  &:hover {
+    background-color: #363636;
+  }
+}

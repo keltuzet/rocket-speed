@@ -1,0 +1,12 @@
+<ul class="priority-list">
+  <li
+    *ngFor="let priority of priorities$ | async; trackBy: priorityTrackBy"
+    [tTooltip]="priority.title"
+    [ngClass]="{ 'priority-item_selected': priority.id === selectedPriority }"
+    class="priority-item"
+  >
+    <button class="priority-item__btn" type="button" (click)="onselect.emit(priority)">
+      <svg-icon [tPriorityFlagIcon]="priority" svgClass="icon_size_m"></svg-icon>
+    </button>
+  </li>
+</ul>

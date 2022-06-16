@@ -1,0 +1,56 @@
+@import 'styles/utils/text';
+
+.schedule-suggestions {
+  padding: 5px 0;
+  display: flex;
+  font-size: 13px;
+
+  &.vertical {
+    flex-direction: column;
+
+    .suggestion {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 4px 10px;
+      line-height: 24px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--schedule-suggestion-hover-background-color);
+      }
+
+      .suggestion__icon {
+        margin-right: 10px;
+      }
+
+      .suggestion__label {
+        margin-right: 4px;
+        font-weight: 500;
+        @include text-truncate;
+      }
+
+      .suggestion__weekday {
+        margin-left: auto;
+        color: var(--schedule-suggestion-weekday-color);
+      }
+    }
+  }
+
+  &.horizontal {
+    .schedule-holder__item {
+      &:nth-child(n + 2) {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  // .suggestion {
+  //   border-radius: 3px;
+  //   line-height: 0;
+
+  //   &:hover {
+  //     background-color: #f3f3f3;
+  //   }
+  // }
+}

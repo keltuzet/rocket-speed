@@ -1,0 +1,57 @@
+<div class="auth-container">
+  <div class="auth-frame">
+    <div class="auth-logo"><a class="auth-logo__link" href="">Todoist</a></div>
+    <div class="auth-content">
+      <h1>Вход</h1>
+      <div class="auth-actions">
+        <button (click)="loginFromGoogle()">
+          <img height="16" width="16" src="/assets/img/svg/google-logo.svg" />
+          Продолжить через Google
+        </button>
+        <button (click)="loginFromFacebook()">
+          <img height="16" width="16" src="/assets/img/svg/facebook-logo.svg" />
+          Продолжить через Facebook
+        </button>
+        <button (click)="loginFromApple()">
+          <img height="16" width="16" src="/assets/img/svg/apple-logo.svg" />
+          Продолжить через Apple
+        </button>
+      </div>
+      <form [formGroup]="form" *let="showError$ | async as showError" class="auth-form" autocomplete="off">
+        <div class="field" [class.invalid]="email.invalid && showError">
+          <label for="email">Email</label>
+          <span *ngIf="showError" class="error-message">
+            <ng-container *ngIf="email.errors?.['email']">Неверный Email-адрес</ng-container>
+            <ng-container *ngIf="email.errors?.['required']">Email-адрес обязателень</ng-container>
+          </span>
+          <input formControlName="email" id="email" type="email" autocomplete="off" />
+        </div>
+        <div class="field" [class.invalid]="password.invalid && showError">
+          <label for="password">Password</label>
+          <span *ngIf="showError" class="error-message">
+            <ng-container *ngIf="password.errors?.['required']">Пароль обязателень</ng-container>
+          </span>
+          <input formControlName="password" id="password" type="password" autocomplete="off" />
+        </div>
+        <button (click)="login()" type="button" class="submit">Вход</button>
+        <label class="stay-login-label" for="permanent-login">
+          <input class="stay-login-checkbox" id="permanent-login" type="checkbox" />
+          <span>Оставаться в системе</span>
+        </label>
+      </form>
+      <div class="forget-password-hint">
+        <a href="" class="link">Забыли пароль?</a>
+      </div>
+      <hr />
+      <div class="help-block">
+        <div class="register-hint">
+          <span>Нет аккаунта? </span>
+          <a routerLink="../register" class="link primary">Регистрация</a>
+        </div>
+        <div class="support-hint">
+          <a class="link" target="_blank">Служба поддержки Todoist</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

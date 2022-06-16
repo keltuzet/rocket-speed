@@ -1,0 +1,37 @@
+svg-icon {
+  line-height: 0;
+  font-size: 0;
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+$icon-sizes: (
+  'xs': 12,
+  'xs-2': 13,
+  's': 16,
+  's-2': 18,
+  'm': 24,
+  'l': 28,
+);
+
+@each $key, $size in $icon-sizes {
+  .icon_size_#{$key} {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+}
+
+$icon-colors: (
+  'green': var(--icon-green-color),
+  'tenne': var(--icon-tenne-color),
+  'royal-blue': var(--icon-royal-blue-color),
+  'purple-heart': var(--icon-purple-heart-color),
+);
+
+@each $key, $color in $icon-colors {
+  .icon_color_#{$key} {
+    color: $color;
+  }
+}

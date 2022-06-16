@@ -1,0 +1,73 @@
+:host {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background-color: var(--dialog-primary-background-color);
+  box-shadow: var(--dialog-box-shadow);
+  color: var(--dialog-color);
+  transition: box-shadow 0.5s;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--dialog-border-color);
+
+  h1 {
+    margin: 5px 0 0;
+    font-size: 16px;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-x: hidden;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 24px;
+  border-top: 1px solid var(--dialog-border-color);
+}
+
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  label {
+    display: block;
+    width: 50%;
+    margin: 0 0 7px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .form-field-control {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--form-filed-color);
+    border: 1px solid var(--form-filed-border-color);
+    background-color: var(--form-filed-background-color);
+  }
+}
+
+footer {
+  > * {
+    margin-left: 10px;
+  }
+}

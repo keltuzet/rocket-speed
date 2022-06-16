@@ -1,0 +1,9 @@
+<ul class="color-list">
+  <ng-container *ngFor="let colorOption of colorsList; index as i; trackBy: trackByLabel">
+    <li *ngLet="activeIndex === i as isActive" class="color-option" [class.active]="isActive" (click)="select(colorOption)">
+      <span class="color-illustrator" [style.background-color]="colorOption.color"></span>
+      <span class="color-name">{{ colorOption.label }}</span>
+      <svg-icon *ngIf="isActive" name="checkbox" svgClass="icon_size_m"></svg-icon>
+    </li>
+  </ng-container>
+</ul>

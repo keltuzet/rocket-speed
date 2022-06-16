@@ -1,0 +1,11 @@
+.panel-header {
+  width: 100%;
+  padding-right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .create-project {
+    padding: 5.5px;
+  }
+}

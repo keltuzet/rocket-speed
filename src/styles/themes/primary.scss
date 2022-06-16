@@ -1,0 +1,45 @@
+:root {
+  --main-color: rgb(211, 94, 94);
+  --icon-green-color: #058527;
+  --icon-tenne-color: #ad6200;
+  --icon-royal-blue-color: #246fe0;
+  --icon-purple-heart-color: #692fc2;
+
+  --nav-list-item-hover-background-color: #eee;
+  --nav-list-item-menu-btn-color: #808080;
+  --nav-list-item-menu-btn-hover-color: #202020;
+
+  --expansion-panel-header-color: #333;
+  --expansion-panel-header-icon-color: rgba(0, 0, 0, 0.54);
+
+  --todo-border-bottom-color: #f0f0f0;
+  --todo-toolbar-color: grey;
+  --todo-toolbar-hover-color: #202020;
+  --todo-toolbar-hover-background-color: #eee;
+  --todo-toolbar-background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, #fff 16px 100%);
+  --todo-term-overdue-color: #d1453b;
+
+  --reorder-handler-color: #808080;
+  --reorder-handler-hover-color: #202020;
+  --reorder-handler-hover-background-color: #eee;
+
+  --icon-button-color: grey;
+  --icon-button-hover-color: #eee;
+  --icon-button-hover-background-color: #202020;
+
+  --basic-button-basic-color: #333;
+  --basic-button-basic-background-color: #efefef;
+
+  --switch-label-color: #000000e0;
+  --switch-bar-color: #d6d6d6;
+
+  --create-task-modal-box-shadow: 0 15px 50px 0 rgb(0 0 0 / 35%);
+  --create-task-modal-border-color: transparent;
+
+  --dropdown-seperate-color: #e6e6e6;
+
+  --select-tags-menu-border-color: rgba(0, 0, 0, 0.1);
+  --select-tags-menu-filter-border-color: #ddd;
+
+  --page-header-border-color: #f0f0f0;
+}

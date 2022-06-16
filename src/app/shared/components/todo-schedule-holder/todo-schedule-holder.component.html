@@ -1,0 +1,51 @@
+<div class="schedule-suggestions" [ngClass]="view">
+  <button *ngFor="let item of list$ | async" (click)="setSchedule(item.type)" class="suggestion" type="button">
+    <svg-icon
+      [appSvgIconText]="item.svgIconText"
+      [name]="item.iconName"
+      [svgClass]="item.iconClass"
+      class="suggestion__icon"
+    ></svg-icon>
+    <span class="suggestion__label">{{ item.label }}</span>
+    <span class="suggestion__weekday">{{ item.weekday }}</span>
+  </button>
+  <!-- <li *ngIf="showTodayBtn$ | async" class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon
+        [appSvgIconText]="currDay"
+        tTooltip="Сегодня"
+        name="calendar-today"
+        svgClass="icon_size_l icon_color_green"
+      ></svg-icon>
+    </button>
+  </li>
+  <li class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon tTooltip="Завтра" name="sun" svgClass="icon_size_l icon_color_tenne"></svg-icon>
+    </button>
+  </li>
+  <li class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon tTooltip="На выходных" name="couch" svgClass="icon_size_l icon_color_royal-blue"></svg-icon>
+    </button>
+  </li>
+  <li class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon
+        tTooltip="Следующая неделя"
+        name="arrow-right-calendar"
+        svgClass="icon_size_l icon_color_purple-heart"
+      ></svg-icon>
+    </button>
+  </li>
+  <li class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon tTooltip="Без срока" name="endless-schedule" svgClass="icon_size_l"></svg-icon>
+    </button>
+  </li>
+  <li class="schedule-holder__item">
+    <button class="schedule-holder__btn" type="button">
+      <svg-icon tTooltip="Еще" name="ellipsis-h-alt" svgClass="icon_size_l"></svg-icon>
+    </button>
+  </li> -->
+</div>

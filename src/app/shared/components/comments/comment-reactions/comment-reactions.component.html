@@ -1,0 +1,24 @@
+<ng-container *let="reactions$ | async as reactions">
+  <ng-container *ngFor="let reaction of reactions">
+    <button
+      (click)="toggleReact(reaction.emoji)"
+      *ngIf="reaction.count"
+      tTooltip
+      [tlpTemplate]="tooltip"
+      [tlpTemplateContext]="reaction"
+      class="comment-reaction"
+    >
+      <span class="comment-reaction-emoji">{{ reaction.emoji }}</span>
+      <span class="comment-reaction-count">{{ reaction.count }}</span>
+    </button>
+  </ng-container>
+  <button [tMenuTrigger]="emojiMenu" (afterClose)="toggleReact($event)" *ngIf="reactions?.length" class="react-btn">
+    <svg-icon name="small-plus" [svgStyle]="{ 'width.px': 13, 'height.px': 13 }"></svg-icon>
+  </button>
+</ng-container>
+
+<ng-template #tooltip let-authors="authors">
+  <div class="tooltip reaction-tooltip">
+    <div *ngFor="let author of authors">{{ author.displayName }}</div>
+  </div>
+</ng-template>

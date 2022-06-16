@@ -1,0 +1,18 @@
+button {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  color: hsla(0, 0%, 100%, 0.6);
+
+  .inner {
+    margin-left: 4px;
+    min-width: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="nav-list-item">
+  <ng-content select="[cdkDragHandle]"></ng-content>
+  <div class="nav-list-item__content">
+    <div class="nav-list-item__icon" [ngStyle]="{ color: color }">
+      <svg-icon [name]="icon" svgClass="icon_size_m"></svg-icon>
+    </div>
+    <div>
+      <ng-content></ng-content>
+    </div>
+    <span class="nav-list-item__counter">{{ todoCount }}</span>
+    <ng-content select=".nav-list-item__menu-btn"></ng-content>
+    <!-- <button [tMenuTrigger]="menu" class="nav-list-item__menu-btn" *ngIf="hasMenu">
+      <svg-icon name="x-menu" [svgStyle]="{ 'width.px': 15, 'height.px': 3 }"></svg-icon>
+    </button> -->
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<button
+  *ngIf="hasActiveIndex && colorsList?.length && colorsList[activeIndex] as current"
+  [tMenuTrigger]="colorListMenu"
+  [menuData]="menuData"
+  (afterClose)="selectColor($event)"
+  class="color-select-button"
+  type="button"
+>
+  <span class="color-illustrator" [style.background-color]="current.color"></span>
+  <span class="color-name">{{ current.label }}</span>
+</button>

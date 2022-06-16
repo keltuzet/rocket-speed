@@ -1,0 +1,47 @@
+<div class="search-field">
+  <input [formControl]="search" type="text" placeholder="Введите название проекта" />
+</div>
+
+<ng-container *ngLet="filteredProjects$ | async as projects">
+  <ul *ngIf="projects.length; else emptyState" aria-label="Выбрать проект" class="project-list" role="listbox">
+    <!-- <ng-container *ngIf="!projects?.length"><div class="empty-state">Проект не найден</div></ng-container> -->
+
+    <ng-container *ngFor="let project of projects">
+      <li (click)="select(project)" class="menu-item icon-menu-item">
+        <svg-icon
+          [name]="project | projectIcon"
+          [style.color]="project.color"
+          svgClass="icon_size_m"
+          class="icon-menu-item__icon"
+          role="option"
+        ></svg-icon>
+        <span class="icon-menu-item__content">{{ project.title }}</span>
+        <svg-icon
+          *ngIf="project.id === selectedProjectID"
+          name="check-solid"
+          svgClass="icon_size_s"
+          class="checkbox-icon"
+        ></svg-icon>
+      </li>
+      <li
+        (click)="select(project, status)"
+        *ngFor="let status of project.statuses"
+        class="menu-item icon-menu-item sub-menu-item"
+        role="option"
+      >
+        <svg-icon name="vert-sections" svgClass="icon_size_m" class="icon-menu-item__icon"></svg-icon>
+        <span class="icon-menu-item__content">{{ status.title }}</span>
+        <svg-icon
+          *ngIf="status.id === selectedProjectID"
+          name="check-solid"
+          svgClass="icon_size_s"
+          class="checkbox-icon"
+        ></svg-icon>
+      </li>
+    </ng-container>
+  </ul>
+</ng-container>
+
+<ng-template #emptyState>
+  <div class="empty-project-list">Проект не найден</div>
+</ng-template>

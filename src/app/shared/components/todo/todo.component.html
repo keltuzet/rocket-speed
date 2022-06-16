@@ -1,0 +1,88 @@
+<div class="todo">
+  <div class="reorder-tool">
+    <div class="reorder-container">
+      <span class="reorder-handler">
+        <svg-icon name="drag" svgClass="icon_size_m"></svg-icon>
+      </span>
+    </div>
+  </div>
+  <app-radio-button
+    class="mark-tool"
+    [checked]="false"
+    [primary]="todo.priority?.colors.primary"
+    [secondary]="todo.priority?.colors.secondary"
+  ></app-radio-button>
+  <div class="todo-content">
+    <div class="todo-content-wrap">
+      <span class="todo-title">{{ todo.title }}</span>
+    </div>
+    <div class="todo-info">
+      <a *ngIf="todo.subTodoIds?.length" class="todo-info__item linked-branches" href="">
+        <svg-icon name="branch" svgClass="icon_size_s"></svg-icon>
+        <span class="todo-info__text">{{ todo.subTodoIds.length }}</span>
+      </a>
+      <button tTooltip [tlpTemplate]="endDateTooltip" *ngIf="showTerm" class="term" [ngClass]="{ overdue: isOverdue }">
+        <svg-icon name="small-calendar-solid" svgClass="icon_size_xs"></svg-icon>
+        <span class="term__date">{{ todo.endDate | date: termFormat }}</span>
+      </button>
+      <button *ngIf="todo.comments.length" (click)="openComments()" class="todo-info__item comments">
+        <svg-icon name="comment-solid" svgClass="icon_size_xs"></svg-icon>
+        <span class="comments__count">{{ todo.comments.length }}</span>
+      </button>
+      <a *ngFor="let tag of todo.tags" [routerLink]="['/label', tag.id]" [ngStyle]="{ color: tag.color }" class="tag">
+        <svg-icon name="small-outline-tag" svgClass="icon_size_xs"></svg-icon>
+        <span class="tag__title">{{ tag.title }}</span>
+      </a>
+      <div *ngIf="todo.project as project" [routerLink]="['/project', project.id]" class="todo-info__item projects-info">
+        <span class="projects-info__title">
+          {{ project.title }}<ng-container *ngIf="todo.status"> / {{ todo.status.title }}</ng-container>
+        </span>
+        <svg-icon
+          name="circle"
+          svgClass="icon_size_xs"
+          class="projects-info__icon"
+          [svgStyle]="{ color: project.color }"
+        ></svg-icon>
+      </div>
+    </div>
+  </div>
+  <div class="todo-toolbar">
+    <button tTooltip [tlpTemplate]="editTooltip" class="todo-toolbar__item">
+      <svg-icon name="pen" svgClass="icon_size_m"></svg-icon>
+    </button>
+    <button [tMenuTrigger]="schedulerMenu" [menuData]="todo" (afterClose)="schedule($event)" tTooltip="Назначить срок" class="todo-toolbar__item">
+      <svg-icon name="small-calendar" svgClass="icon_size_m"></svg-icon>
+    </button>
+    <button (click)="openComments()" tTooltip="Комментировать" class="todo-toolbar__item">
+      <svg-icon name="comment" svgClass="icon_size_m"></svg-icon>
+    </button>
+    <button
+      [tMenuTrigger]="todoActionsMenu"
+      [menuData]="todo"
+      tTooltip="Другие действия в задаче"
+      class="todo-toolbar__item"
+    >
+      <svg-icon name="x-menu" [svgStyle]="{ 'width.px': 15, 'height.px': 3 }"></svg-icon>
+    </button>
+  </div>
+</div>
+
+<ng-template #editTooltip>
+  <div class="tooltip sm-space">
+    <div class="mr-2">Изменить</div>
+    <div><span class="key mr-1">alt</span><span class="key">клик</span></div>
+  </div>
+</ng-template>
+
+<ng-template #endDateTooltip>
+  <div class="tooltip end-date-tooltip">
+    <div>
+      <div>
+        <time class="end-date">{{ todo.endDate | date: 'EEEEEE d MMM HH:mm' | capitalize }}</time>
+      </div>
+      <p *ngIf="todo.endDate | timePassed as timePassedText">{{ timePassedText }}</p>
+    </div>
+    <div class="divider"></div>
+    <div>{{ todoCount }} задач к выполнению</div>
+  </div>
+</ng-template>

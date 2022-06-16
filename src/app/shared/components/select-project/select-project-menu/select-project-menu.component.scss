@@ -1,0 +1,46 @@
+@import 'styles/utils/text';
+
+:host {
+  display: block;
+  width: 275px;
+}
+
+.search-field {
+  display: flex;
+  padding: 4px 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--dropdown-seperate-color);
+
+  input {
+    line-height: 24px;
+    flex-grow: 1;
+  }
+}
+
+.project-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 300px;
+
+  .sub-menu-item {
+    padding-left: 20px;
+
+    .icon-menu-item__icon {
+      color: grey;
+    }
+  }
+
+  .icon-menu-item__content {
+    margin-right: 10px;
+  }
+
+  .checkbox-icon {
+    color: #dd4b39;
+  }
+}
+
+.empty-project-list {
+  padding: 0 10px;
+  line-height: 32px;
+  color: grey;
+}

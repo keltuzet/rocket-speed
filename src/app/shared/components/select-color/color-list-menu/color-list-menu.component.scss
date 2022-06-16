@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  width: 352px;
+  border-radius: 5px;
+  border: 1px solid var(--dropdown-border-color);
+  background-color: var(--dropdown-background-color);
+  box-shadow: var(--dropdown-box-shadow);
+}
+
+.color-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.color-option {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--dropdown-option-hover-background-color);
+  }
+}

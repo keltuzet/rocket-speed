@@ -1,0 +1,60 @@
+:host {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &.theme-icon-button {
+    color: var(--icon-button-color);
+    border-radius: 3px;
+
+    &:hover {
+      background-color: var(--icon-button-hover-background-color);
+      color: var(--icon-button-hover-color);
+    }
+
+    ::ng-deep .inner {
+      font-size: 12px;
+      margin-left: 3px;
+      margin-right: 6px;
+      word-break: normal;
+    }
+  }
+
+  &.theme-basic {
+    font-size: 13px;
+    line-height: 17px;
+    padding: 6px 12px 7px;
+    border-radius: 3px;
+
+    &.color-basic {
+      background-color: var(--basic-button-basic-background-color);
+      color: var(--basic-button-basic-color);
+    }
+
+    &.color-primary {
+      background-color: #db4c3f;
+      color: #fff;
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: rgba(219, 76, 63, 0.75);
+      }
+    }
+  }
+
+  &.theme-outline {
+    font-size: 13px;
+    line-height: 17px;
+    border-radius: 5px;
+    padding: 6px 12px 7px;
+
+    &.color-basic {
+      border: 1px solid #d6d6d6;
+
+      &:hover {
+        background-color: #ebebeb;
+        border-color: #bdbdbd;
+      }
+    }
+  }
+}

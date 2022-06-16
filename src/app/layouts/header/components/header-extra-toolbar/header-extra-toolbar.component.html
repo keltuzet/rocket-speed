@@ -1,0 +1,32 @@
+<ul class="header-extra-toolbar">
+  <li class="header-extra-toolbar__item">
+    <button (click)="quickAddTodo()" tTooltip [tlpTemplate]="addTodoTooltip" class="header-extra-toolbar__btn">
+      <svg-icon name="plus" svgClass="icon_size_m"></svg-icon>
+    </button>
+  </li>
+  <li class="header-extra-toolbar__item">
+    <button [tMenuTrigger]="productivityMenu" class="header-extra-toolbar__btn">
+      <svg-icon name="progress" svgClass="icon_size_m"></svg-icon>
+      <span class="progress-count">0/5</span>
+    </button>
+  </li>
+  <li class="header-extra-toolbar__item">
+    <button [tMenuTrigger]="helpMenu" class="header-extra-toolbar__btn">
+      <svg-icon name="question-circle" svgClass="icon_size_m"></svg-icon>
+    </button>
+  </li>
+  <li class="header-extra-toolbar__item">
+    <button class="header-extra-toolbar__btn">
+      <svg-icon name="bell" svgClass="icon_size_m"></svg-icon>
+    </button>
+  </li>
+  <li *let="userProfile$ | async as userProfile" class="header-extra-toolbar__item">
+    <button [tMenuTrigger]="settingsMenu" class="settings-btn">
+      <img [src]="userProfile?.photoURL" alt="Your avatar" class="user-avatar">
+    </button>
+  </li>
+</ul>
+
+<ng-template #addTodoTooltip>
+  <div class="tooltip sm-space"><span class="mr-2">Быстрое добавление задачи</span><span class="key mr-1">q</span></div>
+</ng-template>

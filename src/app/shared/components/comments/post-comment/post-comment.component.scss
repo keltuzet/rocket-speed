@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: 8px 16px 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.comment-editor-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 8px 0;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+.comment-editor-toolbar {
+  border-top: 1px solid #eee;
+  padding-top: 5px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .comment-editor-tools {
+    display: flex;
+
+    .comment-editor-tool {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 38px;
+      height: 34px;
+      padding-bottom: 2px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      opacity: 1;
+      background-color: transparent;
+      color: grey;
+      cursor: pointer;
+
+      &:hover {
+        color: #202020;
+        border-color: #eee;
+        background: #eee;
+      }
+    }
+  }
+
+  .comment-editor-submit {
+    font-weight: bold;
+  }
+}

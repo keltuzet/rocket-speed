@@ -1,0 +1,37 @@
+<header>
+  <h1>Добавить проект</h1>
+</header>
+<form>
+  <section>
+    <div class="form-field">
+      <label for="project-title">Название</label>
+      <input [(ngModel)]="title" name="title" type="text" class="project-title form-field-control" id="project-title" />
+    </div>
+    <div class="form-field">
+      <label for="project-title">Цвет</label>
+      <t-select-color
+        [colorsList]="colors"
+        [activeIndex]="0"
+        (selectColor)="handleSelectColor($event)"
+        class="form-field-control"
+      ></t-select-color>
+    </div>
+    <t-switch>Добавить в избранное</t-switch>
+
+    <div class="form-field">
+      <label for="project-title">Название</label>
+      <div class="project-view-radio-group">
+        <label for="" class="project-view-option project-view-list-option"></label>
+        <label for="" class="project-view-option project-view-list-option"></label>
+      </div>
+      <span class="project-view-paragraph"
+        >Отображение общих проектов синхронизируется между участниками.
+        <a href="/help/articles/360013988740" target="_blank" rel="noreferrer">Узнать больше</a>.</span
+      >
+    </div>
+  </section>
+  <footer>
+    <button tButton (click)="close()">Отмена</button>
+    <button tButton color="primary" [disabled]="!title" (click)="create()">Добавить</button>
+  </footer>
+</form>
