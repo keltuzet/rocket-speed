@@ -11,6 +11,7 @@
     [checked]="false"
     [primary]="todo.priority?.colors.primary"
     [secondary]="todo.priority?.colors.secondary"
+    (change)="complete($event)"
   ></app-radio-button>
   <div class="todo-content">
     <div class="todo-content-wrap">

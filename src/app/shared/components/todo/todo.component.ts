@@ -38,7 +38,7 @@ export class TodoComponent implements OnInit {
       maxWidth: '650px',
       maxHeight: '960px',
       minHeight: '400px',
-      hasBackdrop: false,
+      hasBackdrop: true,
     });
   }
 
@@ -47,4 +47,6 @@ export class TodoComponent implements OnInit {
       endDate: date.toJSON(),
     });
   }
+
+  complete(value: boolean): void {}
 }

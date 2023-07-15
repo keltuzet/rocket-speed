@@ -38,6 +38,7 @@ export class QuickCreateTodoDialogComponent {
     this.todosService
       .create({
         ...formValue,
+        completed: false,
         createdDate: new Date().toJSON(),
         endDate: new Date().toJSON(),
         tagIds: this.tagIds,

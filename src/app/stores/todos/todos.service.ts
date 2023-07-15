@@ -28,6 +28,10 @@ export class TodosService extends CollectionService<TodosState> {
     super(store);
   }
 
+  complete(id: string, completed: boolean): Observable<void> {
+    return from(this.update(id, { completed }));
+  }
+
   updateTodo(id: string, entity: Partial<Todo>): Observable<void> {
     return from(
       this.update({
