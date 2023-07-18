@@ -23,6 +23,7 @@ export interface Project {
   isIncoming?: true;
   isFavorite?: true;
   isShared?: true;
+  info?: Record<string, unknown>;
 }
 
 export interface CreateProject extends Partial<Project> {

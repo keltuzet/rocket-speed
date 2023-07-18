@@ -9,9 +9,20 @@ import { ProjectComponent } from './project.component';
 import { ProjectNotFoundComponent, TodoBoardCardComponent } from './components';
 import { RadioButtonModule } from '@features/radio-button';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { SectionProjectInfoComponent } from './components/section-project-info/section-project-info.component';
+import { SectionProjectTasksComponent } from './components/section-project-tasks/section-project-tasks.component';
+import { IconModule } from '@features/icon';
+import { NgLetModule } from 'ng-let';
+import { ProjectPageManager } from './project-page-manager.service';
 
 @NgModule({
-  declarations: [ProjectComponent, ProjectNotFoundComponent, TodoBoardCardComponent],
+  declarations: [
+    ProjectComponent,
+    ProjectNotFoundComponent,
+    TodoBoardCardComponent,
+    SectionProjectInfoComponent,
+    SectionProjectTasksComponent,
+  ],
   imports: [
     CommonModule,
     ProjectRoutingModule,
@@ -20,6 +31,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ButtonModule,
     TooltipModule,
     RadioButtonModule,
+    IconModule,
+    NgLetModule,
   ],
+  providers: [ProjectPageManager],
 })
 export class ProjectModule {}

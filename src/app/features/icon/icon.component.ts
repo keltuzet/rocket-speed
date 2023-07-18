@@ -28,8 +28,8 @@ export class IconComponent implements AfterViewInit {
 
   width: number;
   height: number;
-  name: string;
   showIconName = true;
+  name: string;
 
   constructor(private elRef: ElementRef<HTMLElement>, private cdr: ChangeDetectorRef) {}
 

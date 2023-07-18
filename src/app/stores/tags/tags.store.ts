@@ -6,7 +6,8 @@ import { Tag } from './tag.model';
 export interface TagPageUI {
   groupedBy: GroupTodosBy;
   sortedBy: SortTodosBy;
-  id: string;
+  isOpen: boolean;
+  id: string
 }
 
 export interface TagsState extends EntityState<Tag> {}
@@ -19,6 +20,10 @@ export class TagsStore extends EntityStore<TagsState> {
 
   constructor() {
     super();
-    this.createUIStore();
+    this.createUIStore().setInitialEntityState({
+      groupedBy: GroupTodosBy.Default,
+      sortedBy: SortTodosBy.Default,
+      isOpen: false,
+    });
   }
 }

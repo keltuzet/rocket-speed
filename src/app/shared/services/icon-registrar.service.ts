@@ -8,7 +8,9 @@ import { SVG_ICONS } from '@shared/const';
   providedIn: 'root',
 })
 export class IconRegistrarService {
-  constructor(private iconReg: SvgIconRegistryService) {}
+  constructor(private iconReg: SvgIconRegistryService) {
+    console.log('IconRegistrarService has been created!')
+  }
 
   init(): void {
     forkJoin(SVG_ICONS.map(icon => this.iconReg.loadSvg(`assets/img/svg/${icon}.svg`, icon))).subscribe();

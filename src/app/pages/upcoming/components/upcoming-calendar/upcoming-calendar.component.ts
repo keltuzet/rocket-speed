@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 't-upcoming-calendar',
@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
   styleUrls: ['./upcoming-calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UpcomingCalendarComponent implements OnInit {
+export class UpcomingCalendarComponent implements OnInit, OnChanges {
   today = new Date();
   date = new Date();
   monthDay = this.date.getDate();
@@ -15,10 +15,17 @@ export class UpcomingCalendarComponent implements OnInit {
   weekList = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
   week: Date[] = [];
   selected: Date;
+  @Input() test: boolean;
+  @ContentChild('haHa', { static: true }) div: any;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
+  ngOnChanges() {
+
+  }
+
   ngOnInit(): void {
+    console.dir(this.div.isInit)
     this.calcWeek();
   }
 

@@ -6,7 +6,7 @@ import {
   Overlay,
 } from '@angular/cdk/overlay';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, NavigationStart, Router } from '@angular/router';
 import { arrayAdd } from '@datorama/akita';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -23,7 +23,7 @@ import { SearchQuery, SearchStore } from './search.state';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBarComponent implements OnInit {
-  searchControl = new FormControl('');
+  searchControl = new UntypedFormControl('');
   displayPanel$ = new BehaviorSubject<boolean>(false);
   searchResults$: Observable<SearchResult[]>;
   recentSearches$ = this.searchQuery.select('recentSearches');
@@ -37,7 +37,7 @@ export class SearchBarComponent implements OnInit {
   @ViewChild('searchBarWrap') private searchBarWrap: ElementRef<HTMLDivElement>;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private searchService: SearchService,
     private router: Router,
     private activatedRoute: ActivatedRoute,

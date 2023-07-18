@@ -7,6 +7,7 @@ import { Todo } from '@stores/todos';
 import { trackByIdentity } from '@shared/utils';
 import { TagsQuery, TagsService } from '@stores/tags';
 import { TodosQuery } from '@stores/todos';
+import { IconRegistrarService } from '@shared/services';
 
 @Component({
   selector: 't-label',
@@ -19,10 +20,11 @@ export class LabelComponent implements OnInit {
   readonly menu = DisplayTodosMenuComponent;
   readonly trackById = trackByIdentity<Todo>('id');
   readonly todos$ = this.getTodos();
+  showTitle = false;
 
   readonly termFormatFn = (todo: Todo) => `d MMMM${todo.hasEndTime ? ' HH:mm' : ''}`;
 
-  constructor(private tagsQuery: TagsQuery, private tagsService: TagsService, private todosQuery: TodosQuery) {}
+  constructor(private tagsQuery: TagsQuery, private tagsService: TagsService, private todosQuery: TodosQuery, private iconRegistrarService: IconRegistrarService) {}
 
   ngOnInit(): void {
     this.initTodosDisplaying();
@@ -37,5 +39,13 @@ export class LabelComponent implements OnInit {
 
   private getTodos(): Observable<Todo[]> {
     return this.tag$.pipe(switchMap(tag => this.todosQuery.selectByTag(tag)));
+  }
+
+  handle() {
+    this.showTitle = true;
+  }
+
+  fun() {
+    console.log('Change detection run in LabelComponent');
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, HostBinding, Inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Todo, TodosQuery } from '@stores/todos';
 import * as moment from 'moment';
 import { BehaviorSubject, map, merge, Subject, switchMap } from 'rxjs';
@@ -16,7 +16,7 @@ import { SetTimeMenuComponent } from './set-time-menu/set-time-menu.component';
 })
 export class SchedulerMenuComponent implements OnInit {
   @HostBinding('class.menu-list') readonly menuListCssClass = true;
-  readonly dateInput = new FormControl();
+  readonly dateInput = new UntypedFormControl();
   readonly setTimeMenu = SetTimeMenuComponent;
   isSchedulerDateValid$: Observable<boolean>;
   schedulerDatePreview$: Observable<string>;

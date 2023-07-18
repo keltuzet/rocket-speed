@@ -3,3 +3,4 @@ export * from './icon-registrar.service';
 export * from './spinner.service';
 export * from './unsubscribe.service';
 export * from './themes.service';
+export * from './keyboard-listener.service';

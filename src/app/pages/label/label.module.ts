@@ -8,6 +8,7 @@ import { LabelComponent } from './label.component';
 import { TodoListModule, TodoModule } from '@shared/components';
 import { ButtonModule } from '@features/button/button.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { IconRegistrarService } from '@shared/services';
 
 @NgModule({
   declarations: [LabelComponent],
@@ -21,5 +22,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     TodoListModule,
     MenuModule,
   ],
+  providers: [
+    IconRegistrarService
+  ]
 })
 export class LabelModule {}

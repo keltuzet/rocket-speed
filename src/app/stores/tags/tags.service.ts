@@ -9,6 +9,7 @@ import { GroupTodosBy, SortTodosBy } from '@stores/todos/todo.model';
 export const initialUIState: Omit<TagPageUI, 'id'> = {
   groupedBy: GroupTodosBy.Default,
   sortedBy: SortTodosBy.Default,
+  isOpen: false,
 };
 
 @Injectable({ providedIn: 'root' })

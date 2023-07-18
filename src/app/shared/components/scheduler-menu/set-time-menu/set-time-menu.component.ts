@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, HostBinding, Inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MenuRef, MENU_DATA } from 'todoist-menu';
 import { timeInputValidator } from '@shared/validators';
 
@@ -11,7 +11,7 @@ import { timeInputValidator } from '@shared/validators';
 })
 export class SetTimeMenuComponent {
   @HostBinding('class.menu') readonly menuListCssClass = true;
-  readonly time = new FormControl(null, [timeInputValidator]);
+  readonly time = new UntypedFormControl(null, [timeInputValidator]);
   get displayWarning(): boolean {
     return (this.time.touched || this.time.dirty) && this.time.invalid;
   }

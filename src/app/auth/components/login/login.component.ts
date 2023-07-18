@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, from, of, Subject } from 'rxjs';
 import { FirebaseError } from 'firebase/app';
@@ -13,17 +13,17 @@ import { SnackbarService } from '@features/snackbar';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  readonly form = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required]),
+  readonly form = new UntypedFormGroup({
+    email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+    password: new UntypedFormControl(null, [Validators.required]),
   });
   readonly showError$ = new Subject<boolean>();
 
-  get email(): FormControl {
-    return this.form.controls.email as FormControl;
+  get email(): UntypedFormControl {
+    return this.form.controls.email as UntypedFormControl;
   }
-  get password(): FormControl {
-    return this.form.controls.email as FormControl;
+  get password(): UntypedFormControl {
+    return this.form.controls.email as UntypedFormControl;
   }
 
   constructor(private authService: AuthService, private router: Router, private snackbarService: SnackbarService) {}

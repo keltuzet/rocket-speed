@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { isNil } from '@shared/utils';
 import * as moment from 'moment';
 import { Observable, Subject } from 'rxjs';
@@ -12,7 +12,7 @@ import { map, startWith, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DateSchedulerInputComponent implements OnInit {
-  readonly dateControl = new FormControl('');
+  readonly dateControl = new UntypedFormControl('');
   isSearchInpEmpty$: Observable<boolean>;
   readonly submit$ = new EventEmitter<void>();
 

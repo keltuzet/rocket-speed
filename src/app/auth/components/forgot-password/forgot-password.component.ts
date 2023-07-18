@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { sendPasswordResetEmail } from '@angular/fire/auth';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/stores';
 import { from } from 'rxjs';
@@ -12,8 +12,8 @@ import { from } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForgotPasswordComponent {
-  readonly form = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
+  readonly form = new UntypedFormGroup({
+    email: new UntypedFormControl(null, [Validators.required, Validators.email]),
   });
 
   constructor(private authService: AuthService, private router: Router) {}

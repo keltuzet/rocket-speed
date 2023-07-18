@@ -8,10 +8,14 @@
   <div class="content">
     <div class="title">{{ todo.title }}</div>
     <div class="description">{{ todo.description }}</div>
+    <div class="actions">
+      <t-icon [size]="24">ellipsis-h-alt</t-icon>
+      <t-icon [size]="24">user-light-plus</t-icon>
+    </div>
   </div>
   <div class="meta">
     <button tTooltip [tlpTemplate]="endDateTooltip" *ngIf="showTerm" class="term" [ngClass]="{ overdue: isOverdue }">
-      <svg-icon name="small-calendar-solid" svgClass="icon_size_xs"></svg-icon>
+      <t-icon [size]="12">small-calendar-solid</t-icon>
       <span class="term__date">{{ todo.endDate | date: 'dd MMM' }}</span>
     </button>
   </div>

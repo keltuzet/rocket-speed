@@ -1,0 +1,18 @@
+<div class="seaction-project-tasks project-section">
+  <div class="section-header">
+    <h2>Section Project Tasks</h2>
+    <t-icon [routerLink]="['../']" size="16">cross</t-icon>
+  </div>
+
+  <ng-container *ngIf="isTodosLoading$ | async; else content">Loading ...</ng-container>
+
+  <ng-template #content>
+    <ng-container *ngIf="todos$ | async as todoList">
+      <ol *ngIf="todoList?.length; else emptyState">
+        <li *ngFor="let todo of todoList">{{ todo.title }}</li>
+      </ol>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #emptyState>No tasks yet.</ng-template>
+</div>

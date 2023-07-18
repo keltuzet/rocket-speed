@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PROJECT_COLORS, PROJECT_DEFAULT_COLOR, PROJECT_INBOX_COLOR } from '@shared/const';
 import { FaqQuery, FaqService } from '@stores/faq';
 import { InboxProject, Project, SelectedProject } from '@stores/projects';
@@ -16,9 +16,9 @@ import { ProductService } from './product.service';
 export class FaqComponent implements OnInit {
   clicks = 0;
   name;
-  addForm = new FormGroup({
-    question: new FormControl(null, Validators.required),
-    content: new FormControl(null, Validators.required),
+  addForm = new UntypedFormGroup({
+    question: new UntypedFormControl(null, Validators.required),
+    content: new UntypedFormControl(null, Validators.required),
   });
   list$ = this.faqQuery.selectAll();
   items: any[];

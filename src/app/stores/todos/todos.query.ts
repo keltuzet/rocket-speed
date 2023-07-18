@@ -83,6 +83,14 @@ export class TodosQuery extends QueryEntity<TodosState> {
     return this.toTodo(this.selectAll({ filterBy: todo => todo.statusId === statusId }));
   }
 
+  selectProjectTodos(relatedProjectId: string): Observable<DetailedTodo[]> {
+    return this.toTodo(
+      this.selectAll({
+        filterBy: ({ projectId }) => projectId === relatedProjectId,
+      }),
+    );
+  }
+
   getByStatusID(statusId: string): Todo[] {
     return this.getAll({ filterBy: todo => todo.statusId === statusId });
   }

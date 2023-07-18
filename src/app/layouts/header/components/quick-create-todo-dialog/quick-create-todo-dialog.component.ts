@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, UntypedFormBuilder } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 
 import { DialogRef } from '@features/dialog/dialog-ref';
@@ -26,7 +26,7 @@ export class QuickCreateTodoDialogComponent {
   tagIds: string[] = [];
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialogRef: DialogRef<void>,
     private todosService: TodosService,
     private snackbarService: SnackbarService,

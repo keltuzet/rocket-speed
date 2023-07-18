@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/stores/auth.service';
 import { SnackbarService } from '@features/snackbar';
@@ -13,9 +13,9 @@ import { catchError, from, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserRegistrationComponent implements OnInit {
-  readonly form = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+  readonly form = new UntypedFormGroup({
+    email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(8)]),
   });
 
   constructor(private authService: AuthService, private router: Router, private snackbarService: SnackbarService) {}

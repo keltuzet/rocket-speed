@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Inject, HostBinding } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { debounceTime, map, Observable, startWith, switchMap } from 'rxjs';
 import { MenuRef, MENU_DATA } from 'todoist-menu';
 import { PROJECT_INBOX_COLOR } from '@shared/const';
@@ -15,7 +15,7 @@ import { Project, ProjectsQuery, SelectedProject, SelectedProjectType, Status } 
 export class SelectProjectMenuComponent {
   readonly projects$ = this.getProjectList();
   readonly selectedProjectID: string = this.project.status ? this.project.status.id : this.project.id;
-  readonly search = new FormControl();
+  readonly search = new UntypedFormControl();
   readonly filteredProjects$ = this.getFilteredProjects();
   @HostBinding('class.menu-list') readonly hostMenuClass = true;
 

@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthQuery } from '@auth/stores';
-import { IconRegistrarService, ThemesService } from '@shared/services';
-import { interval, map, startWith } from 'rxjs';
+import { IconRegistrarService, KeyboardListener, ThemesService } from '@shared/services';
 
 @Component({
   selector: 'rock-root',
@@ -11,8 +10,14 @@ import { interval, map, startWith } from 'rxjs';
 export class AppComponent {
   readonly loading$ = this.authQuery.selectLoading();
 
-  constructor(iconRegistrarService: IconRegistrarService, themesService: ThemesService, private authQuery: AuthQuery) {
+  constructor(
+    iconRegistrarService: IconRegistrarService,
+    themesService: ThemesService,
+    private authQuery: AuthQuery,
+    private readonly keyboardListener: KeyboardListener,
+  ) {
     iconRegistrarService.init();
     themesService.init();
+    keyboardListener.init();
   }
 }

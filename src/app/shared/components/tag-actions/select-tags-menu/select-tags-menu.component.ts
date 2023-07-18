@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { MenuRef, MENU_DATA } from 'todoist-menu';
@@ -19,7 +19,7 @@ interface TagOption extends Tag {
 })
 export class SelectTagsMenuComponent {
   readonly hasAnyTags$ = this.tagsQuery.selectCount().pipe(map<number, boolean>(Boolean));
-  readonly filterControl = new FormControl();
+  readonly filterControl = new UntypedFormControl();
   readonly filter$: Observable<string> = this.filterControl.valueChanges.pipe(startWith(''));
   readonly selectedTagIds$ = new BehaviorSubject<string[]>([]);
   // readonly filteredTags$ = this.filterControl.valueChanges.pipe(startWith(''));

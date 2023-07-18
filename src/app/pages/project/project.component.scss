@@ -30,6 +30,61 @@
   }
 }
 
+.board {
+  display: flex;
+  padding: 0 20px;
+
+  .board-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .board-section__header {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: space-between;
+      height: 44px;
+      flex: 0 0 44px;
+      width: 288px;
+      padding-right: 16px;
+      padding-left: 8px;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color 0.3s;
+
+      .board-section__section-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+        z-index: 1;
+      }
+
+      .board-section__title {
+        margin: 0 4px 0 0;
+        padding-right: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .board-section__task-count {
+        font-size: 13px;
+        line-height: 18px;
+        color: grey;
+      }
+
+      .board-section__menu-trigger {
+        display: flex;
+        align-items: center;
+        padding: 0 4px;
+        z-index: 1;
+      }
+    }
+  }
+}
+
 .tooltip {
   white-space: nowrap;
 }
@@ -37,4 +92,26 @@
 .loading-message {
   font-size: 15px;
   color: #aeaeae;
+}
+
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+::ng-deep .project-section {
+  display: inline-block;
+  padding: 16px 40px;
+  margin-bottom: 20px;
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    h2 {
+      margin-right: 26px;
+    }
+  }
 }

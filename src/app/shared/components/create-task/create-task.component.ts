@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, NgForm, Validators } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 
 @Component({
@@ -18,10 +18,13 @@ export class CreateTaskComponent implements OnInit {
     startWith(this.form.invalid),
     map(() => this.form.invalid),
   );
+  isInit = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isInit = true;
+  }
 
   displayFormModel(): void {
     this.isFormModel = true;
