@@ -81,6 +81,8 @@
   --schedule-suggestion-weekday-color: hsla(0, 0%, 100%, 0.6);
 
   --background-base-secondary: #282828;
+
+  --auth-frame-background-color: #282828;
 }
 
 /* Project board */
@@ -89,6 +91,7 @@
   --board-task-box-shadow: 0 10px 10px rgb(0 0 0 / 10%), 0 6px 3px rgb(0 0 0 / 12%);
   --board-task-description-color: grey;
   --board-task-term-data-color: hsla(0,0%,100%,.56);
+  --schedule-suggestion-weekday-color: hsla(0,0%,100%,.6);
 }
 
 .header {

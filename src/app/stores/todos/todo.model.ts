@@ -7,6 +7,7 @@ import { Priority } from '../priorities/priority.model';
 export interface TodoFromFirestore {
   id: string;
   title: string;
+  completed: boolean;
   createdDate: Timestamp;
   endDate: Timestamp;
   subTodoIds: string[];
@@ -22,6 +23,7 @@ export interface TodoFromFirestore {
 export interface Todo {
   id: string;
   title: string;
+  completed: boolean;
   createdDate: string;
   endDate: string;
   subTodoIds: string[];
