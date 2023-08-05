@@ -6,6 +6,7 @@
   &.theme-icon-button {
     color: var(--icon-button-color);
     border-radius: 3px;
+    justify-content: center;
 
     &:hover {
       background-color: var(--icon-button-hover-background-color);

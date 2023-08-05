@@ -1,6 +1,7 @@
 :root {
   --app-background-color: #1f1f1f;
   --app-text-color: hsla(0, 0%, 100%, 0.87);
+  --app-text-secondary-color: hsla(0, 0%, 100%, 0.56);
 
   --app-topbar-background-color: #282828;
   --app-topbar-border-color: transparent;
@@ -83,6 +84,32 @@
   --background-base-secondary: #282828;
 
   --auth-frame-background-color: #282828;
+  --auth-frame-border-color: #171717;
+  --auth-button-background-color: #202020;
+  --auth-button-border-color: #333;
+
+  --dialog-bg-color: #1f1f1f;
+  --dialog-backdrop-bg-color: rgba(0, 0, 0, 0.5);
+  --dialog-border-radius: 10px;
+  --dialog-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+
+  --tab-label-color: #fff;
+  --tab-bottom-border-color: rgb(255 255 255 / 10%);
+  --tab-active-label-color: #fff;
+  --tab-active-bottom-border-color: #de4c4a;
+
+  --post-comment-border-color: #555;
+
+  --divider-secondary: #3d3d3d;
+
+  --input-placeholder-color: hsla(0,0%,100%,0.4);
+  --input-text-primary-color: #eee;
+}
+
+/* Borders */
+:root {
+  --border-radius-small: 5px;
+  --border-radius-large: 10px;
 }
 
 /* Project board */
@@ -90,8 +117,8 @@
   --board-task-border-color: hsla(0, 0%, 100%, 0.1);
   --board-task-box-shadow: 0 10px 10px rgb(0 0 0 / 10%), 0 6px 3px rgb(0 0 0 / 12%);
   --board-task-description-color: grey;
-  --board-task-term-data-color: hsla(0,0%,100%,.56);
-  --schedule-suggestion-weekday-color: hsla(0,0%,100%,.6);
+  --board-task-term-data-color: hsla(0, 0%, 100%, 0.56);
+  --schedule-suggestion-weekday-color: hsla(0, 0%, 100%, 0.6);
 }
 
 .header {

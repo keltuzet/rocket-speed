@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Dialog } from '@features/dialog';
+import { EmojiMenuComponent } from '@shared/components/emoji-menu/emoji-menu.component';
 import { CommentEditorComponent } from '../comment-editor/comment-editor.component';
 
 enum Display {
@@ -20,6 +21,7 @@ export class PostCommentComponent {
   readonly placeholder = 'Написать комментарий';
   state: Display = Display.Editor;
   readonly statesMap = Display;
+  public readonly emojiMenuComponent: EmojiMenuComponent;
 
   constructor(private dialog: Dialog) {}
 
@@ -39,4 +41,6 @@ export class PostCommentComponent {
   }
 
   attach(): void {}
+
+  public insertEmoji(emoji: string): void {}
 }

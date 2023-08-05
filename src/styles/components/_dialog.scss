@@ -1,0 +1,10 @@
+.dialog-container {
+  color: var(--app-text-color);
+  background-color: var(--dialog-bg-color);
+  border-radius: var(--dialog-border-radius);
+  box-shadow: var(--dialog-box-shadow);
+}
+
+.dialog-backdrop {
+  background-color: var(--dialog-backdrop-bg-color);
+}

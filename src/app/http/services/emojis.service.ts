@@ -21,7 +21,7 @@ export class EmojisService {
     if (copyFromLocalStorage) return of(copyFromLocalStorage);
 
     return this.http
-      .get<EmojiGroup[]>(`/emojis.json`)
+      .get<EmojiGroup[]>(`./assets/emojis/emojis.json`)
       .pipe(tap(groups => localStorage.setItem(this.allStorageKey, JSON.stringify(groups))));
   }
 

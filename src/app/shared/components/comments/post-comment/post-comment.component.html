@@ -1,5 +1,5 @@
 <form class="comment-editor-form">
-  <t-comment-editor [ngStyle]="{ 'display': state === statesMap.Editor ? 'block' : 'none' }"></t-comment-editor>
+  <t-comment-editor [ngStyle]="{ display: state === statesMap.Editor ? 'block' : 'none' }"></t-comment-editor>
   <ng-container [ngSwitch]="state">
     <t-audio-recorder
       *ngSwitchCase="statesMap.AudioRecorder"
@@ -9,13 +9,20 @@
 
   <div class="comment-editor-toolbar">
     <div class="comment-editor-tools">
-      <button (click)="attach()" tTooltip="Прикрепить файл" class="comment-editor-tool">
+      <button (click)="attach()" tTooltip="Прикрепить файл" tButton theme="icon-button" class="comment-editor-tool">
         <svg-icon name="attachment" svgClass="icon_size_m"></svg-icon>
       </button>
-      <butto (click)="recordAudio()" tTooltip="Записать аудио" class="comment-editor-tool">
+      <butto (click)="recordAudio()" tTooltip="Записать аудио" tButton theme="icon-button" class="comment-editor-tool">
         <svg-icon name="microphone" svgClass="icon_size_m"></svg-icon>
       </butto>
-      <button tTooltip="Вставить эмодзи" class="comment-editor-tool">
+      <button
+        [tMenuTrigger]="emojiMenuComponent"
+        (afterClose)="insertEmoji($event)"
+        tTooltip="Вставить эмодзи"
+        tButton
+        theme="icon-button"
+        class="comment-editor-tool"
+      >
         <svg-icon name="emoji" svgClass="icon_size_m"></svg-icon>
       </button>
     </div>

@@ -17,3 +17,6 @@ export interface DialogConfig<D> {
 }
 
 export const DIALOG_DATA = new InjectionToken('DIALOG_DATA');
+
+export const DIALOG_CONTAINER_CLASS = 'dialog-container';
+export const DIALOG_BACKDROP_CLASS = 'dialog-backdrop';

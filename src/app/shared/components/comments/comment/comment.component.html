@@ -8,13 +8,20 @@
       <span>{{ (isEdited ? comment?.lastEditedDate : comment?.postedDate) | date: 'd MMMM y HH:mm' }}</span>
     </span>
     <div class="comment-actions">
-      <button (click)="edit()" class="comment-action" tTooltip="Изменить комментарий">
+      <button (click)="edit()" tButton theme="icon-button" class="comment-action" tTooltip="Изменить комментарий">
         <svg-icon name="pen" svgClass="icon_size_m"></svg-icon>
       </button>
-      <button (click)="remove()" class="comment-action" tTooltip="Удалить комментарий">
+      <button (click)="remove()" tButton theme="icon-button" class="comment-action" tTooltip="Удалить комментарий">
         <svg-icon name="trash-alt" svgClass="icon_size_m"></svg-icon>
       </button>
-      <button [tMenuTrigger]="emojiMenu" (afterClose)="react($event)" class="comment-action" tTooltip="Отреагировать">
+      <button
+        [tMenuTrigger]="emojiMenu"
+        (afterClose)="react($event)"
+        tButton
+        theme="icon-button"
+        class="comment-action"
+        tTooltip="Отреагировать"
+      >
         <svg-icon name="emoji" svgClass="icon_size_m"> </svg-icon>
       </button>
     </div>

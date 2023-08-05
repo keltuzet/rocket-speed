@@ -9,7 +9,7 @@
   outline: none;
   overflow-y: auto;
   resize: none;
-  color: #202020;
+  color: var(--input-text-primary-color);
   word-wrap: break-word;
   white-space: pre-wrap;
   white-space: break-spaces;
@@ -19,6 +19,6 @@
 
   &[contenteditable]:empty::before {
     content: attr(data-placeholder);
-    opacity: 0.3;
+    color: var(--input-placeholder-color);
   }
 }

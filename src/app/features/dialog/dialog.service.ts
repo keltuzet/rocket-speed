@@ -1,8 +1,12 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
 import { Injectable, Injector } from '@angular/core';
-import { DialogConfig, DIALOG_DATA } from './dialog-config';
+import { DialogConfig, DIALOG_BACKDROP_CLASS, DIALOG_CONTAINER_CLASS, DIALOG_DATA } from './dialog-config';
 import { DialogRef } from './dialog-ref';
+
+export const DIALOG_CSS_CLASSES = {
+  container: 'dialog-container',
+};
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +42,8 @@ export class Dialog {
     const overlay = this.overlay.create({
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically(),
       ...config,
+      panelClass: config.panelClass ? [...config.panelClass, DIALOG_CONTAINER_CLASS] : [DIALOG_CONTAINER_CLASS],
+      backdropClass: config.backdropClass ? [...config.backdropClass, DIALOG_BACKDROP_CLASS] : [DIALOG_BACKDROP_CLASS],
     });
 
     return overlay;

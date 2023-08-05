@@ -1,8 +1,8 @@
 :host {
   display: block;
   padding: 8px 16px 4px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid var(--post-comment-border-color);
+  border-radius: var(--border-radius-large);
 }
 
 .comment-editor-form {
@@ -15,7 +15,7 @@
 }
 
 .comment-editor-toolbar {
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--divider-secondary);
   padding-top: 5px;
   text-align: left;
   display: flex;
@@ -24,26 +24,11 @@
 
   .comment-editor-tools {
     display: flex;
+    gap: 4px;
 
     .comment-editor-tool {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 38px;
-      height: 34px;
-      padding-bottom: 2px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      opacity: 1;
-      background-color: transparent;
-      color: grey;
-      cursor: pointer;
-
-      &:hover {
-        color: #202020;
-        border-color: #eee;
-        background: #eee;
-      }
+      width: 32px;
+      height: 32px;
     }
   }
 

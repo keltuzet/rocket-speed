@@ -8,8 +8,8 @@
 
 .auth-frame {
   border-radius: 8px;
-  border: solid 1px #dbdbdb;
-  background: #fff;
+  border: solid 1px var(--auth-frame-border-color);
+  background: var(--auth-frame-background-color);
   padding: 25px;
 
   .auth-logo {
@@ -36,11 +36,11 @@
       min-width: 273px;
       margin-bottom: 10px;
       padding: 6px;
-      border: 1px solid #ddd;
+      border: 1px solid var(--auth-button-border-color);
       border-radius: 3px;
       box-sizing: border-box;
-      background: #fff;
-      color: #202020;
+      background: var(--auth-button-background-color);
+      color: var(--basic-button-basic-color);
       cursor: pointer;
       font-weight: 400;
       font-size: 13px;
@@ -61,7 +61,7 @@
     h1 {
       font-size: 26px;
       font-weight: 700;
-      color: #000;
+      color: var(--app-text-color);
       margin: 0 0 1.1em;
       padding: 0;
     }
@@ -104,7 +104,9 @@
         font-weight: 400;
         width: 100%;
         padding: 0.75em 1em;
-        border: 1px solid #ddd;
+        border: 1px solid var(--form-filed-border-color);
+        background-color: var(--form-filed-background-color);
+        color: var(--form-filed-color);
         border-radius: 5px;
       }
     }
@@ -127,6 +129,7 @@
   }
 
   .help-block {
+    color: var(--app-text-color);
     margin-top: 20px;
     text-align: center;
     font-size: 13px;

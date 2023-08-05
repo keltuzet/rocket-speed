@@ -1,4 +1,7 @@
 :root {
+  --app-text-color: #fff;
+  --app-text-secondary-color: rgba(0, 0, 0, 0.4);
+
   --main-color: rgb(211, 94, 94);
   --icon-green-color: #058527;
   --icon-tenne-color: #ad6200;
@@ -42,4 +45,24 @@
   --select-tags-menu-filter-border-color: #ddd;
 
   --page-header-border-color: #f0f0f0;
+
+
+  --tab-label-color: #808080;
+  --tab-bottom-border-color: #e0e0e0;
+  --tab-active-label-color: #202020;
+  --tab-active-bottom-border-color: #202020;
+
+  --post-comment-border-color: #ddd;
+
+  --divider-secondary: #eee;
+
+  --input-placeholder-color: #808080;
+  --input-text-primary-color: #202020;
 }
+
+/* Borders */
+:root {
+  --border-radius-small: 5px;
+  --border-radius-large: 10px;
+}
+
