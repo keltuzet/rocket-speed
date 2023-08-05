@@ -18,7 +18,6 @@ export class KeyboardListener {
 
   init() {
     this.onKeydown.subscribe((event: KeyboardEvent) => {
-      console.log(event)
       this.lastestKeydown$.next(event);
     });
   }

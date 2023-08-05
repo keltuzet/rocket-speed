@@ -11,10 +11,6 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router, private authStore: AuthStore) {}
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (!environment.production) {
-      this.authService.sync().subscribe();
-      return true;
-    }
     this.authStore.setLoading(true);
     return this.authService.sync().pipe(
       map(data => {

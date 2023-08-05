@@ -1,9 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { TodosService } from '@stores/todos';
 import { EmojiMenuComponent } from '@shared/components';
-import { CommentReactionDetails, Comment, CommentReactionAuthorDetails, CommentsService } from '@stores/comments';
+import {
+  CommentReactionDetails,
+  Comment,
+  CommentReactionAuthorDetails,
+  CommentsService,
+  CommentReaction,
+} from '@stores/comments';
 import { UsersQuery } from '@stores/users';
 
 @Component({
@@ -15,13 +20,19 @@ import { UsersQuery } from '@stores/users';
 export class CommentReactionsComponent implements OnInit {
   @Input() relatedTodoId: string;
   @Input('comment') set setComment(value: Comment) {
-    if (!value.reacts) return;
+    if (!value.reacts || !this.hasAnyReaction(value.reacts)) {
+      this.displayReactions$.next(false);
+      this.reactions$.next([]);
+      return;
+    }
     this.comment = value;
     const commentReactionDetails: CommentReactionDetails[] = this.commentToReactionsDetails(value);
+    this.displayReactions$.next(true);
     this.reactions$.next(commentReactionDetails);
   }
   readonly authorsMap = new Map<string, CommentReactionAuthorDetails>();
   readonly reactions$ = new BehaviorSubject<CommentReactionDetails[]>([]);
+  readonly displayReactions$ = new BehaviorSubject<boolean>(false);
   readonly emojiMenu = EmojiMenuComponent;
   private comment: Comment;
 
@@ -59,5 +70,9 @@ export class CommentReactionsComponent implements OnInit {
         count: authors.length,
       };
     });
+  }
+
+  private hasAnyReaction(reactionsMap: CommentReaction): boolean {
+    return Object.values(reactionsMap).some(reactions => reactions.length);
   }
 }

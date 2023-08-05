@@ -21,7 +21,7 @@ export class PostCommentComponent {
   readonly placeholder = 'Написать комментарий';
   state: Display = Display.Editor;
   readonly statesMap = Display;
-  public readonly emojiMenuComponent: EmojiMenuComponent;
+  public readonly emojiMenuComponent = EmojiMenuComponent;
 
   constructor(private dialog: Dialog) {}
 
@@ -42,5 +42,9 @@ export class PostCommentComponent {
 
   attach(): void {}
 
-  public insertEmoji(emoji: string): void {}
+  public insertEmoji(emoji: string): void {
+    console.log(emoji);
+    if (!emoji) return;
+    this.editor.insertText(emoji);
+  }
 }

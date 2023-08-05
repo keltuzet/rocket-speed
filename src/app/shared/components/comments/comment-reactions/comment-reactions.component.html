@@ -1,5 +1,5 @@
-<ng-container *let="reactions$ | async as reactions">
-  <ng-container *ngFor="let reaction of reactions">
+<ng-container *ngIf="displayReactions$ | async">
+  <ng-container *ngFor="let reaction of (reactions$ | async)">
     <button
       (click)="toggleReact(reaction.emoji)"
       *ngIf="reaction.count"
@@ -12,7 +12,7 @@
       <span class="comment-reaction-count">{{ reaction.count }}</span>
     </button>
   </ng-container>
-  <button [tMenuTrigger]="emojiMenu" (afterClose)="toggleReact($event)" *ngIf="reactions?.length" class="react-btn">
+  <button [tMenuTrigger]="emojiMenu" (afterClose)="toggleReact($event)" class="react-btn">
     <svg-icon name="small-plus" [svgStyle]="{ 'width.px': 13, 'height.px': 13 }"></svg-icon>
   </button>
 </ng-container>

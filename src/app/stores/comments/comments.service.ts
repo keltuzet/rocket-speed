@@ -15,6 +15,7 @@ export class CommentsService extends CollectionService<CommentsState> {
   }
 
   updateComment(commentId: string, comment: Partial<Comment>): Observable<void> {
+    console.log(commentId, comment);
     return from(
       this.update({
         ...this.query.getEntity(commentId),
@@ -44,6 +45,7 @@ export class CommentsService extends CollectionService<CommentsState> {
       authorId: myId,
       reactedDate: new Date().toJSON(),
     });
+    console.log(commentId, reacts)
     return this.updateComment(commentId, { reacts });
   }
 

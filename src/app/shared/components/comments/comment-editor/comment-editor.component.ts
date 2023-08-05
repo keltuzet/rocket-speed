@@ -1,4 +1,10 @@
-import { Component, ChangeDetectionStrategy, Input, ElementRef, ViewChild } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, ChangeDetectionStrategy, Input, ElementRef, ViewChild, Inject } from '@angular/core';
+
+interface DocSelection extends Selection {
+  baseOffset: number;
+  extentOffset: number;
+}
 
 @Component({
   selector: 't-comment-editor',
@@ -7,15 +13,21 @@ import { Component, ChangeDetectionStrategy, Input, ElementRef, ViewChild } from
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentEditorComponent {
-  @ViewChild('textbox', { read: ElementRef, static: true }) textbox: ElementRef<HTMLDivElement>;
+  @ViewChild('textbox', { read: ElementRef, static: true }) textboxRef: ElementRef<HTMLDivElement>;
   @Input() placeholder = 'Написать комментарий';
   @Input() set text(value: string) {
     if (!value) return;
-    this.textbox.nativeElement.innerHTML = value;
+    this.textbox.innerHTML = value;
   }
   get text(): string {
-    return this.textbox.nativeElement.innerHTML;
+    return this.textbox.innerHTML;
   }
+
+  get textbox(): HTMLDivElement {
+    return this.textboxRef.nativeElement;
+  }
+
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   handleKeyUp(event: KeyboardEvent): void {
     if (event.code === 'Backspace' && this.isTextboxEmpty()) {
@@ -24,14 +36,26 @@ export class CommentEditorComponent {
   }
 
   clearTextboxInner(): void {
-    this.textbox.nativeElement.innerHTML = '';
+    this.textbox.innerHTML = '';
   }
 
   private isTextboxEmpty(): boolean {
-    const textboxEl = this.textbox.nativeElement;
+    const textboxEl = this.textbox;
     return (
       textboxEl.childNodes.length <= 1 &&
       (textboxEl.firstChild instanceof HTMLBRElement || textboxEl.firstChild instanceof HTMLDivElement)
     );
+  }
+
+  public insertText(text: string): void {
+    console.log('insertText');
+    let sel: Selection
+    let range: Range;
+    sel = window.getSelection();
+    if (sel.getRangeAt && sel.rangeCount) {
+      range = sel.getRangeAt(0);
+      range.deleteContents();
+      range.insertNode(this.document.createTextNode('da'));
+    }
   }
 }
